@@ -1,6 +1,6 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +16,6 @@
     >
 
     <style>
-
         * {
             box-sizing: border-box;
             margin: 0;
@@ -26,38 +25,27 @@
         body {
             min-height: 100vh;
             background: #8B5CF6;
-
             font-family: "DM Sans", sans-serif;
-
             display: flex;
             align-items: center;
             justify-content: center;
-
             padding: 30px;
         }
 
         .account-container {
             width: 100%;
             max-width: 850px;
-
             background: #FFFFFF;
-
             border-radius: 30px;
-
             padding: 55px;
-
             text-align: left;
         }
 
         .title {
             font-size: clamp(2.5rem, 6vw, 4.5rem);
-
             font-weight: 700;
-
             line-height: 1;
-
             color: #8B5CF6;
-
             margin-bottom: 40px;
         }
 
@@ -67,33 +55,21 @@
 
         .form-group label {
             display: block;
-
             margin-bottom: 8px;
-
             font-size: 1rem;
-
             font-weight: 700;
-
             color: #222222;
         }
 
         .form-group input {
             width: 100%;
-
             height: 55px;
-
             padding: 0 18px;
-
             border: 2px solid #E5E5E5;
-
             border-radius: 14px;
-
             outline: none;
-
             font-family: "DM Sans", sans-serif;
-
             font-size: 1rem;
-
             transition:
                 border-color 0.2s ease,
                 box-shadow 0.2s ease;
@@ -101,59 +77,41 @@
 
         .form-group input:focus {
             border-color: #8B5CF6;
-
             box-shadow:
                 0 0 0 4px rgba(139, 92, 246, 0.12);
         }
 
         .agreement {
             display: flex;
-
             align-items: flex-start;
-
             gap: 10px;
-
             margin: 25px 0;
         }
 
         .agreement input {
             width: 18px;
             height: 18px;
-
             margin-top: 3px;
-
             accent-color: #8B5CF6;
         }
 
         .agreement label {
             font-size: 0.9rem;
-
             line-height: 1.5;
-
             color: #444444;
         }
 
         .create-button {
             width: 100%;
-
             height: 58px;
-
             border: none;
-
             border-radius: 999px;
-
             background: #8B5CF6;
-
             color: #FFFFFF;
-
             font-family: "DM Sans", sans-serif;
-
             font-size: 1rem;
-
             font-weight: 700;
-
             cursor: pointer;
-
             transition:
                 transform 0.2s ease,
                 box-shadow 0.2s ease;
@@ -161,7 +119,6 @@
 
         .create-button:hover {
             transform: translateY(-3px);
-
             box-shadow:
                 0 10px 25px rgba(139, 92, 246, 0.25);
         }
@@ -170,70 +127,65 @@
             transform: scale(0.98);
         }
 
+        .create-button:disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
         .login-button {
             display: block;
-
             width: 100%;
-
             height: 50px;
-
             margin-top: 15px;
-
             border: none;
-
             border-radius: 999px;
-
             background: #F1ECFF;
-
             color: #8B5CF6;
-
             font-family: "DM Sans", sans-serif;
-
             font-size: 0.95rem;
-
             font-weight: 700;
-
             cursor: pointer;
         }
 
         .error-message {
             display: none;
-
             margin-bottom: 20px;
-
             padding: 14px 18px;
-
             border-radius: 12px;
-
             background: #FFE5EA;
-
             color: #C6284A;
-
             font-size: 0.9rem;
+            font-weight: 600;
+        }
 
+        .success-message {
+            display: none;
+            margin-bottom: 20px;
+            padding: 14px 18px;
+            border-radius: 12px;
+            background: #E7F8EE;
+            color: #197A43;
+            font-size: 0.9rem;
             font-weight: 600;
         }
 
         @media (max-width: 600px) {
-
             body {
                 padding: 15px;
             }
 
             .account-container {
                 padding: 35px 25px;
-
                 border-radius: 22px;
             }
 
             .title {
                 font-size: 2.7rem;
             }
-
         }
-
     </style>
-
 </head>
 
 <body>
@@ -249,10 +201,14 @@
             id="error-message"
         ></div>
 
+        <div
+            class="success-message"
+            id="success-message"
+        ></div>
+
         <form id="create-account-form">
 
             <div class="form-group">
-
                 <label for="full-name">
                     Full Name
                 </label>
@@ -264,12 +220,9 @@
                     placeholder="Enter your full name"
                     required
                 >
-
             </div>
 
-
             <div class="form-group">
-
                 <label for="email">
                     Email
                 </label>
@@ -281,12 +234,9 @@
                     placeholder="Enter your email"
                     required
                 >
-
             </div>
 
-
             <div class="form-group">
-
                 <label for="password">
                     Password
                 </label>
@@ -299,12 +249,9 @@
                     minlength="6"
                     required
                 >
-
             </div>
 
-
             <div class="form-group">
-
                 <label for="confirm-password">
                     Confirm Password
                 </label>
@@ -317,9 +264,7 @@
                     minlength="6"
                     required
                 >
-
             </div>
-
 
             <div class="agreement">
 
@@ -335,14 +280,13 @@
 
             </div>
 
-
             <button
                 type="submit"
                 class="create-button"
+                id="create-button"
             >
                 Create Account
             </button>
-
 
             <button
                 type="button"
@@ -357,11 +301,59 @@
     </main>
 
 
-    <script>
+    <!-- Firebase -->
+
+    <script type="module">
+
+        import { initializeApp } from
+            "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
+        import {
+            getAuth,
+            createUserWithEmailAndPassword,
+            updateProfile
+        } from
+            "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
+
+
+        const firebaseConfig = {
+
+            apiKey: "AIzaSyBNI4CR26Re0xdh-T0XdVyb6fFN7SPgPNA",
+
+            authDomain: "the-myp-haven.firebaseapp.com",
+
+            projectId: "the-myp-haven",
+
+            storageBucket:
+                "the-myp-haven.firebasestorage.app",
+
+            messagingSenderId:
+                "904577455533",
+
+            appId:
+                "1:904577455533:web:1d918ee8a3caa547eefd24"
+
+        };
+
+
+        const app = initializeApp(firebaseConfig);
+
+        const auth = getAuth(app);
+
 
         const form =
             document.getElementById(
                 "create-account-form"
+            );
+
+        const fullName =
+            document.getElementById(
+                "full-name"
+            );
+
+        const email =
+            document.getElementById(
+                "email"
             );
 
         const password =
@@ -379,18 +371,34 @@
                 "error-message"
             );
 
+        const successMessage =
+            document.getElementById(
+                "success-message"
+            );
+
+        const createButton =
+            document.getElementById(
+                "create-button"
+            );
+
 
         form.addEventListener(
             "submit",
-            function(event) {
+            async function(event) {
 
                 event.preventDefault();
 
 
+                errorMessage.style.display =
+                    "none";
+
+                successMessage.style.display =
+                    "none";
+
+
                 /*
-                    Check that both passwords
-                    match before continuing.
-                */
+                 * Check passwords.
+                 */
 
                 if (
                     password.value !==
@@ -408,26 +416,162 @@
 
 
                 /*
-                    Temporarily store the name.
-                    We will connect this page
-                    to Firebase next.
-                */
+                 * Disable button while
+                 * Firebase creates the account.
+                 */
 
-                localStorage.setItem(
-                    "mypHavenFullName",
-                    document.getElementById(
-                        "full-name"
-                    ).value
-                );
+                createButton.disabled = true;
+
+                createButton.textContent =
+                    "Creating Account...";
 
 
-                /*
-                    For now, continue to the
-                    survey page.
-                */
+                try {
 
-                window.location.href =
-                    "survey.html";
+                    /*
+                     * Create Firebase account.
+                     */
+
+                    const userCredential =
+                        await createUserWithEmailAndPassword(
+                            auth,
+                            email.value.trim(),
+                            password.value
+                        );
+
+
+                    const user =
+                        userCredential.user;
+
+
+                    /*
+                     * Save the student's
+                     * full name to their
+                     * Firebase profile.
+                     */
+
+                    await updateProfile(
+                        user,
+                        {
+                            displayName:
+                                fullName.value.trim()
+                        }
+                    );
+
+
+                    /*
+                     * Also keep the name locally
+                     * so the survey can use it.
+                     */
+
+                    localStorage.setItem(
+                        "mypHavenFullName",
+                        fullName.value.trim()
+                    );
+
+
+                    /*
+                     * Remember that this is
+                     * a newly created account.
+                     */
+
+                    localStorage.setItem(
+                        "mypHavenNewAccount",
+                        "true"
+                    );
+
+
+                    successMessage.textContent =
+                        "Account created successfully! Taking you to your survey...";
+
+                    successMessage.style.display =
+                        "block";
+
+
+                    /*
+                     * Give the success message
+                     * a moment to appear.
+                     */
+
+                    setTimeout(
+                        function() {
+
+                            window.location.href =
+                                "survey.html";
+
+                        },
+                        800
+                    );
+
+                }
+
+                catch (error) {
+
+                    console.error(
+                        "Firebase account creation error:",
+                        error
+                    );
+
+
+                    let message =
+                        "Something went wrong. Please try again.";
+
+
+                    if (
+                        error.code ===
+                        "auth/email-already-in-use"
+                    ) {
+
+                        message =
+                            "An account with this email already exists. Please log in instead.";
+
+                    }
+
+                    else if (
+                        error.code ===
+                        "auth/invalid-email"
+                    ) {
+
+                        message =
+                            "Please enter a valid email address.";
+
+                    }
+
+                    else if (
+                        error.code ===
+                        "auth/weak-password"
+                    ) {
+
+                        message =
+                            "Your password is too weak. Please choose a stronger password.";
+
+                    }
+
+                    else if (
+                        error.code ===
+                        "auth/operation-not-allowed"
+                    ) {
+
+                        message =
+                            "Email and password accounts are not enabled in Firebase yet.";
+
+                    }
+
+
+                    errorMessage.textContent =
+                        message;
+
+                    errorMessage.style.display =
+                        "block";
+
+
+                    createButton.disabled =
+                        false;
+
+                    createButton.textContent =
+                        "Create Account";
+
+                }
 
             }
         );
@@ -435,5 +579,5 @@
     </script>
 
 </body>
-
 </html>
+```
