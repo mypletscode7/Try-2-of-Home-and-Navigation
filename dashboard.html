@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>MYP Haven | Dashboard</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+>
+
+<style>
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        min-height: 100vh;
+        font-family: "DM Sans", sans-serif;
+        background: #F7F8FC;
+        color: #111111;
+    }
+
+    button,
+    input {
+        font-family: "DM Sans", sans-serif;
+    }
+
+
+    /* =====================================================
+       AUTH SCREEN
+    ====================================================== */
+
+    .auth-screen {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 30px;
+        background:
+            linear-gradient(
+                135deg,
+                #FF4D6D 0%,
+                #8B5CF6 50%,
+                #39D6C0 100%
+            );
+    }
+
+    .auth-card {
+        width: min(460px, 100%);
+        background: #FFFFFF;
+        border-radius: 30px;
+        padding: 45px;
+        box-shadow:
+            0 25px 70px rgba(0, 0, 0, 0.18);
+    }
+
+    .auth-logo {
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-size: 2.5rem;
+        font-weight: 800;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .auth-logo span {
+        color: #FF4D6D;
+    }
+
+    .auth-subtitle {
+        text-align: center;
+        color: #666666;
+        margin-bottom: 35px;
+        line-height: 1.5;
+    }
+
+    .auth-title {
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-size: 2rem;
+        font-weight: 800;
+        margin-bottom: 25px;
+    }
+
+    .form-group {
+        margin-bottom: 18px;
+    }
+
+    .form-group label {
+        display: block;
+        font-size: 0.9rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    .form-group input {
+        width: 100%;
+        height: 52px;
+        padding: 0 16px;
+        border: 2px solid #E5E7EB;
+        border-radius: 14px;
+        outline: none;
+        font-size: 1rem;
+        transition: border-color 0.2s ease;
+    }
+
+    .form-group input:focus {
+        border-color: #8B5CF6;
+    }
+
+    .auth-button {
+        width: 100%;
+        height: 54px;
+        border: none;
+        border-radius: 999px;
+        background: #8B5CF6;
+        color: #FFFFFF;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition:
+            transform 0.2s ease,
+            filter 0.2s ease;
+    }
+
+    .auth-button:hover {
+        transform: translateY(-2px);
+        filter: brightness(1.05);
+    }
+
+    .auth-button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+    .switch-text {
+        text-align: center;
+        margin-top: 22px;
+        color: #666666;
+        font-size: 0.9rem;
+    }
+
+    .switch-button {
+        border: none;
+        background: none;
+        color: #8B5CF6;
+        font-weight: 700;
+        cursor: pointer;
+        font-size: inherit;
+    }
+
+    .error-message {
+        display: none;
+        margin-bottom: 18px;
+        padding: 12px 15px;
+        border-radius: 12px;
+        background: #FFE5EA;
+        color: #B4233C;
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+
+    .error-message.show {
+        display: block;
+    }
+
+
+    /* =====================================================
+       DASHBOARD
+    ====================================================== */
+
+    .dashboard {
+        display: none;
+        min-height: 100vh;
+    }
+
+    .dashboard.active {
+        display: block;
+    }
+
+    .dashboard-header {
+        width: 100%;
+        padding: 22px 6%;
+        background: #FFFFFF;
+        border-bottom: 1px solid #E5E7EB;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .dashboard-logo {
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-size: 1.8rem;
+        font-weight: 800;
+    }
+
+    .dashboard-logo span {
+        color: #FF4D6D;
+    }
+
+    .sign-out {
+        border: none;
+        border-radius: 999px;
+        background: #111111;
+        color: #FFFFFF;
+        padding: 11px 20px;
+        font-weight: 700;
+        cursor: pointer;
+    }
+
+    .dashboard-main {
+        width: min(1250px, 90%);
+        margin: 0 auto;
+        padding: 65px 0 100px;
+    }
+
+    .welcome {
+        margin-bottom: 45px;
+    }
+
+    .welcome h1 {
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-size: clamp(3rem, 7vw, 6rem);
+        line-height: 0.95;
+        letter-spacing: -0.05em;
+        margin-bottom: 15px;
+    }
+
+    .welcome h1 span {
+        color: #8B5CF6;
+    }
+
+    .welcome p {
+        color: #666666;
+        font-size: 1.1rem;
+    }
+
+    .dashboard-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+    }
+
+    .dashboard-card {
+        min-height: 190px;
+        padding: 28px;
+        border-radius: 24px;
+        color: #FFFFFF;
+    }
+
+    .dashboard-card:nth-child(1) {
+        background: #FF4D6D;
+    }
+
+    .dashboard-card:nth-child(2) {
+        background: #8B5CF6;
+    }
+
+    .dashboard-card:nth-child(3) {
+        background: #39D6C0;
+    }
+
+    .dashboard-card:nth-child(4) {
+        background: #FFD23F;
+        color: #111111;
+    }
+
+    .dashboard-card:nth-child(5) {
+        background: #00C2FF;
+    }
+
+    .dashboard-card:nth-child(6) {
+        background: #34D399;
+    }
+
+    .dashboard-card .emoji {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .dashboard-card h2 {
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-size: 1.5rem;
+        margin-bottom: 8px;
+    }
+
+    .dashboard-card p {
+        line-height: 1.5;
+        font-size: 0.92rem;
+    }
+
+
+    /* =====================================================
+       LOADING
+    ====================================================== */
+
+    .loading-screen {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: #FFFFFF;
+    }
+
+    .loading-screen.hidden {
+        display: none;
+    }
+
+    .loading-text {
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-size: 2rem;
+        font-weight: 800;
+    }
+
+
+    /* =====================================================
+       RESPONSIVE
+    ====================================================== */
+
+    @media (max-width: 800px) {
+
+        .dashboard-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .auth-card {
+            padding: 32px 25px;
+        }
+
+    }
+
+    @media (max-width: 550px) {
+
+        .dashboard-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .dashboard-header {
+            padding: 18px 5%;
+        }
+
+        .dashboard-main {
+            width: 90%;
+            padding-top: 45px;
+        }
+
+        .welcome h1 {
+            font-size: 3.2rem;
+        }
+
+    }
+
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<!-- =====================================================
+     LOADING
+====================================================== -->
+
+<div
+    class="loading-screen"
+    id="loading-screen"
+>
+
+    <div class="loading-text">
+        MYP Haven
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     AUTHENTICATION
+====================================================== -->
+
+<main
+    class="auth-screen"
+    id="auth-screen"
+>
+
+    <div class="auth-card">
+
+        <div class="auth-logo">
+            MYP <span>Haven</span>
+        </div>
+
+        <p class="auth-subtitle">
+            Your place to organize, understand, and master the MYP.
+        </p>
+
+
+        <!-- LOGIN -->
+
+        <div id="login-form">
+
+            <h1 class="auth-title">
+                Welcome back 👋
+            </h1>
+
+            <div
+                class="error-message"
+                id="login-error"
+            ></div>
+
+
+            <div class="form-group">
+
+                <label for="login-email">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="login-email"
+                    placeholder="you@example.com"
+                    autocomplete="email"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="login-password">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="login-password"
+                    placeholder="Your password"
+                    autocomplete="current-password"
+                >
+
+            </div>
+
+
+            <button
+                class="auth-button"
+                id="login-button"
+                type="button"
+            >
+                Sign In
+            </button>
+
+
+            <p class="switch-text">
+
+                Don't have an account?
+
+                <button
+                    class="switch-button"
+                    id="show-signup"
+                    type="button"
+                >
+                    Create one
+                </button>
+
+            </p>
+
+        </div>
+
+
+        <!-- SIGN UP -->
+
+        <div
+            id="signup-form"
+            style="display: none;"
+        >
+
+            <h1 class="auth-title">
+                Create your account ✨
+            </h1>
+
+            <div
+                class="error-message"
+                id="signup-error"
+            ></div>
+
+
+            <div class="form-group">
+
+                <label for="signup-name">
+                    Name
+                </label>
+
+                <input
+                    type="text"
+                    id="signup-name"
+                    placeholder="Your name"
+                    autocomplete="name"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="signup-email">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="signup-email"
+                    placeholder="you@example.com"
+                    autocomplete="email"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="signup-password">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="signup-password"
+                    placeholder="At least 6 characters"
+                    autocomplete="new-password"
+                >
+
+            </div>
+
+
+            <button
+                class="auth-button"
+                id="signup-button"
+                type="button"
+            >
+                Create Account
+            </button>
+
+
+            <p class="switch-text">
+
+                Already have an account?
+
+                <button
+                    class="switch-button"
+                    id="show-login"
+                    type="button"
+                >
+                    Sign in
+                </button>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- =====================================================
+     DASHBOARD
+====================================================== -->
+
+<div
+    class="dashboard"
+    id="dashboard"
+>
+
+    <header class="dashboard-header">
+
+        <div class="dashboard-logo">
+            MYP <span>Haven</span>
+        </div>
+
+        <button
+            class="sign-out"
+            id="sign-out"
+            type="button"
+        >
+            Sign Out
+        </button>
+
+    </header>
+
+
+    <main class="dashboard-main">
+
+        <section class="welcome">
+
+            <h1>
+                Welcome to
+                <span>MYP Haven.</span>
+            </h1>
+
+            <p id="welcome-message">
+                Your MYP journey starts here.
+            </p>
+
+        </section>
+
+
+        <section class="dashboard-grid">
+
+
+            <article class="dashboard-card">
+
+                <div class="emoji">
+                    🏠
+                </div>
+
+                <h2>
+                    Dashboard Home
+                </h2>
+
+                <p>
+                    Your central place to see your MYP progress and upcoming work.
+                </p>
+
+            </article>
+
+
+            <article class="dashboard-card">
+
+                <div class="emoji">
+                    📚
+                </div>
+
+                <h2>
+                    My Subjects
+                </h2>
+
+                <p>
+                    Organize your MYP subjects, tasks, assessments, and resources.
+                </p>
+
+            </article>
+
+
+            <article class="dashboard-card">
+
+                <div class="emoji">
+                    ✅
+                </div>
+
+                <h2>
+                    Tasks
+                </h2>
+
+                <p>
+                    Keep track of assignments, deadlines, priorities, and completion.
+                </p>
+
+            </article>
+
+
+            <article class="dashboard-card">
+
+                <div class="emoji">
+                    🗓️
+                </div>
+
+                <h2>
+                    Study Scheduler
+                </h2>
+
+                <p>
+                    Plan your study sessions and organize your week.
+                </p>
+
+            </article>
+
+
+            <article class="dashboard-card">
+
+                <div class="emoji">
+                    🎯
+                </div>
+
+                <h2>
+                    Assessment Tracker
+                </h2>
+
+                <p>
+                    Track your MYP criteria, achievement levels, targets, and progress.
+                </p>
+
+            </article>
+
+
+            <article class="dashboard-card">
+
+                <div class="emoji">
+                    📈
+                </div>
+
+                <h2>
+                    Goals & Progress
+                </h2>
+
+                <p>
+                    Set academic goals and monitor your progress.
+                </p>
+
+            </article>
+
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- =====================================================
+     FIREBASE
+====================================================== -->
+
+<script type="module">
+
+    import {
+        initializeApp
+    } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
+    import {
+        getAuth,
+        onAuthStateChanged,
+        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
+        updateProfile,
+        signOut
+    } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
+
+
+    /* =================================================
+       FIREBASE CONFIG
+    ================================================= */
+
+    const firebaseConfig = {
+
+        apiKey:
+            "AIzaSyBNI4CR26Re0xdh-T0XdVyb6fFN7SPgPNA",
+
+        authDomain:
+            "the-myp-haven.firebaseapp.com",
+
+        projectId:
+            "the-myp-haven",
+
+        storageBucket:
+            "the-myp-haven.firebasestorage.app",
+
+        messagingSenderId:
+            "904577455533",
+
+        appId:
+            "1:904577455533:web:1d918ee8a3caa547eefd24"
+
+    };
+
+
+    /* =================================================
+       INITIALIZE FIREBASE
+    ================================================= */
+
+    const app =
+        initializeApp(firebaseConfig);
+
+    const auth =
+        getAuth(app);
+
+
+    /* =================================================
+       ELEMENTS
+    ================================================= */
+
+    const loadingScreen =
+        document.getElementById(
+            "loading-screen"
+        );
+
+    const authScreen =
+        document.getElementById(
+            "auth-screen"
+        );
+
+    const dashboard =
+        document.getElementById(
+            "dashboard"
+        );
+
+    const loginForm =
+        document.getElementById(
+            "login-form"
+        );
+
+    const signupForm =
+        document.getElementById(
+            "signup-form"
+        );
+
+
+    /* =================================================
+       SWITCH LOGIN / SIGNUP
+    ================================================= */
+
+    document
+        .getElementById("show-signup")
+        .addEventListener(
+            "click",
+            () => {
+
+                loginForm.style.display =
+                    "none";
+
+                signupForm.style.display =
+                    "block";
+
+            }
+        );
+
+
+    document
+        .getElementById("show-login")
+        .addEventListener(
+            "click",
+            () => {
+
+                signupForm.style.display =
+                    "none";
+
+                loginForm.style.display =
+                    "block";
+
+            }
+        );
+
+
+    /* =================================================
+       ERROR HANDLING
+    ================================================= */
+
+    function showError(
+        elementId,
+        message
+    ) {
+
+        const element =
+            document.getElementById(
+                elementId
+            );
+
+        element.textContent =
+            message;
+
+        element.classList.add(
+            "show"
+        );
+
+    }
+
+
+    function clearError(
+        elementId
+    ) {
+
+        const element =
+            document.getElementById(
+                elementId
+            );
+
+        element.textContent = "";
+
+        element.classList.remove(
+            "show"
+        );
+
+    }
+
+
+    /* =================================================
+       CREATE ACCOUNT
+    ================================================= */
+
+    document
+        .getElementById("signup-button")
+        .addEventListener(
+            "click",
+            async () => {
+
+                clearError(
+                    "signup-error"
+                );
+
+
+                const name =
+                    document
+                        .getElementById(
+                            "signup-name"
+                        )
+                        .value
+                        .trim();
+
+
+                const email =
+                    document
+                        .getElementById(
+                            "signup-email"
+                        )
+                        .value
+                        .trim();
+
+
+                const password =
+                    document
+                        .getElementById(
+                            "signup-password"
+                        )
+                        .value;
+
+
+                if (!name) {
+
+                    showError(
+                        "signup-error",
+                        "Please enter your name."
+                    );
+
+                    return;
+
+                }
+
+
+                if (!email) {
+
+                    showError(
+                        "signup-error",
+                        "Please enter your email address."
+                    );
+
+                    return;
+
+                }
+
+
+                if (password.length < 6) {
+
+                    showError(
+                        "signup-error",
+                        "Your password must contain at least 6 characters."
+                    );
+
+                    return;
+
+                }
+
+
+                const button =
+                    document.getElementById(
+                        "signup-button"
+                    );
+
+
+                button.disabled = true;
+
+                button.textContent =
+                    "Creating Account...";
+
+
+                try {
+
+                    const result =
+                        await createUserWithEmailAndPassword(
+                            auth,
+                            email,
+                            password
+                        );
+
+
+                    await updateProfile(
+                        result.user,
+                        {
+                            displayName: name
+                        }
+                    );
+
+
+                } catch (error) {
+
+                    console.error(
+                        error
+                    );
+
+
+                    let message =
+                        "Something went wrong. Please try again.";
+
+
+                    if (
+                        error.code ===
+                        "auth/email-already-in-use"
+                    ) {
+
+                        message =
+                            "An account with this email already exists.";
+
+                    }
+
+
+                    if (
+                        error.code ===
+                        "auth/invalid-email"
+                    ) {
+
+                        message =
+                            "Please enter a valid email address.";
+
+                    }
+
+
+                    if (
+                        error.code ===
+                        "auth/weak-password"
+                    ) {
+
+                        message =
+                            "Please choose a stronger password.";
+
+                    }
+
+
+                    showError(
+                        "signup-error",
+                        message
+                    );
+
+
+                    button.disabled =
+                        false;
+
+                    button.textContent =
+                        "Create Account";
+
+                }
+
+            }
+        );
+
+
+    /* =================================================
+       SIGN IN
+    ================================================= */
+
+    document
+        .getElementById("login-button")
+        .addEventListener(
+            "click",
+            async () => {
+
+                clearError(
+                    "login-error"
+                );
+
+
+                const email =
+                    document
+                        .getElementById(
+                            "login-email"
+                        )
+                        .value
+                        .trim();
+
+
+                const password =
+                    document
+                        .getElementById(
+                            "login-password"
+                        )
+                        .value;
+
+
+                if (!email || !password) {
+
+                    showError(
+                        "login-error",
+                        "Please enter your email and password."
+                    );
+
+                    return;
+
+                }
+
+
+                const button =
+                    document.getElementById(
+                        "login-button"
+                    );
+
+
+                button.disabled = true;
+
+                button.textContent =
+                    "Signing In...";
+
+
+                try {
+
+                    await signInWithEmailAndPassword(
+                        auth,
+                        email,
+                        password
+                    );
+
+
+                } catch (error) {
+
+                    console.error(
+                        error
+                    );
+
+
+                    let message =
+                        "Unable to sign in. Please check your details.";
+
+
+                    if (
+                        error.code ===
+                        "auth/invalid-credential"
+                    ) {
+
+                        message =
+                            "The email or password is incorrect.";
+
+                    }
+
+
+                    showError(
+                        "login-error",
+                        message
+                    );
+
+
+                    button.disabled =
+                        false;
+
+                    button.textContent =
+                        "Sign In";
+
+                }
+
+            }
+        );
+
+
+    /* =================================================
+       AUTH STATE
+    ================================================= */
+
+    onAuthStateChanged(
+        auth,
+        user => {
+
+            loadingScreen.classList.add(
+                "hidden"
+            );
+
+
+            if (user) {
+
+                authScreen.style.display =
+                    "none";
+
+                dashboard.classList.add(
+                    "active"
+                );
+
+
+                const name =
+                    user.displayName ||
+                    user.email ||
+                    "Student";
+
+
+                document.getElementById(
+                    "welcome-message"
+                ).textContent =
+                    `Welcome, ${name}. Your MYP journey starts here.`;
+
+
+            } else {
+
+                authScreen.style.display =
+                    "flex";
+
+                dashboard.classList.remove(
+                    "active"
+                );
+
+            }
+
+        }
+    );
+
+
+    /* =================================================
+       SIGN OUT
+    ================================================= */
+
+    document
+        .getElementById("sign-out")
+        .addEventListener(
+            "click",
+            async () => {
+
+                try {
+
+                    await signOut(auth);
+
+                } catch (error) {
+
+                    console.error(
+                        "Sign out failed:",
+                        error
+                    );
+
+                }
+
+            }
+        );
+
+</script>
+```
+
+</body>
+
+</html>
