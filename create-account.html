@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MYP Haven | Create Account</title>
+
+    <!-- =====================================================
+         GOOGLE FONTS
+    ====================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        /* =====================================================
+           GLOBAL
+        ====================================================== */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+
+            background: #8B5CF6;
+
+            font-family: "DM Sans", sans-serif;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 40px 20px;
+        }
+
+
+        /* =====================================================
+           MAIN CONTAINER
+        ====================================================== */
+
+        .account-container {
+            width: 100%;
+            max-width: 900px;
+
+            background: #FFFFFF;
+
+            border-radius: 30px;
+
+            padding: 55px 65px;
+
+            box-shadow:
+                0 25px 70px rgba(0, 0, 0, 0.15);
+        }
+
+
+        /* =====================================================
+           LOGO
+        ====================================================== */
+
+        .logo-container {
+            text-align: center;
+
+            margin-bottom: 35px;
+        }
+
+        .logo {
+            width: 120px;
+            max-width: 40%;
+
+            height: auto;
+        }
+
+
+        /* =====================================================
+           TITLE
+        ====================================================== */
+
+        .page-title {
+            color: #8B5CF6;
+
+            font-size: clamp(2.2rem, 5vw, 4rem);
+
+            font-weight: 700;
+
+            line-height: 1.05;
+
+            text-align: left;
+
+            margin-bottom: 12px;
+        }
+
+        .page-subtitle {
+            color: #666666;
+
+            font-size: 1rem;
+
+            line-height: 1.5;
+
+            text-align: left;
+
+            margin-bottom: 40px;
+        }
+
+
+        /* =====================================================
+           FORM
+        ====================================================== */
+
+        .account-form {
+            width: 100%;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-label {
+            display: block;
+
+            color: #222222;
+
+            font-size: 0.95rem;
+
+            font-weight: 700;
+
+            margin-bottom: 9px;
+        }
+
+        .required {
+            color: #FF4D6D;
+        }
+
+        .form-input {
+            width: 100%;
+
+            height: 58px;
+
+            padding: 0 18px;
+
+            border: 2px solid #E5E5E5;
+
+            border-radius: 15px;
+
+            background: #FFFFFF;
+
+            color: #222222;
+
+            font-family: "DM Sans", sans-serif;
+
+            font-size: 1rem;
+
+            outline: none;
+
+            transition:
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .form-input:focus {
+            border-color: #8B5CF6;
+
+            box-shadow:
+                0 0 0 4px rgba(139, 92, 246, 0.12);
+        }
+
+        .form-input.error {
+            border-color: #FF4D6D;
+        }
+
+
+        /* =====================================================
+           PASSWORD NOTE
+        ====================================================== */
+
+        .password-note {
+            margin-top: 7px;
+
+            color: #777777;
+
+            font-size: 0.82rem;
+
+            line-height: 1.4;
+        }
+
+
+        /* =====================================================
+           AGREEMENT
+        ====================================================== */
+
+        .agreement {
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 12px;
+
+            margin: 28px 0;
+        }
+
+        .agreement input {
+            width: 19px;
+            height: 19px;
+
+            min-width: 19px;
+
+            margin-top: 2px;
+
+            accent-color: #8B5CF6;
+
+            cursor: pointer;
+        }
+
+        .agreement label {
+            color: #555555;
+
+            font-size: 0.9rem;
+
+            line-height: 1.5;
+
+            cursor: pointer;
+        }
+
+        .agreement a {
+            color: #8B5CF6;
+
+            font-weight: 700;
+
+            text-decoration: none;
+        }
+
+        .agreement a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =====================================================
+           ERROR MESSAGE
+        ====================================================== */
+
+        .error-message {
+            display: none;
+
+            width: 100%;
+
+            padding: 14px 17px;
+
+            margin-bottom: 22px;
+
+            border-radius: 14px;
+
+            background: #FFF0F3;
+
+            color: #D92D50;
+
+            font-size: 0.9rem;
+
+            font-weight: 600;
+
+            line-height: 1.45;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+
+        /* =====================================================
+           CREATE ACCOUNT BUTTON
+        ====================================================== */
+
+        .create-button {
+            width: 100%;
+
+            height: 60px;
+
+            border: none;
+
+            border-radius: 16px;
+
+            background: #8B5CF6;
+
+            color: #FFFFFF;
+
+            font-family: "DM Sans", sans-serif;
+
+            font-size: 1rem;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease,
+                opacity 0.2s ease;
+        }
+
+        .create-button:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 25px rgba(139, 92, 246, 0.25);
+        }
+
+        .create-button:active {
+            transform: scale(0.98);
+        }
+
+        .create-button:disabled {
+            opacity: 0.65;
+
+            cursor: not-allowed;
+
+            transform: none;
+
+            box-shadow: none;
+        }
+
+
+        /* =====================================================
+           LOGIN BUTTON
+        ====================================================== */
+
+        .login-button {
+            width: 100%;
+
+            height: 52px;
+
+            margin-top: 15px;
+
+            border: 2px solid #8B5CF6;
+
+            border-radius: 15px;
+
+            background: #FFFFFF;
+
+            color: #8B5CF6;
+
+            font-family: "DM Sans", sans-serif;
+
+            font-size: 0.95rem;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition:
+                background 0.2s ease,
+                color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .login-button:hover {
+            background: #8B5CF6;
+
+            color: #FFFFFF;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ====================================================== */
+
+        @media (max-width: 600px) {
+
+            body {
+                padding: 20px 12px;
+            }
+
+            .account-container {
+                padding: 40px 24px;
+
+                border-radius: 24px;
+            }
+
+            .logo {
+                width: 100px;
+            }
+
+            .page-title {
+                font-size: 2.3rem;
+            }
+
+            .page-subtitle {
+                font-size: 0.92rem;
+
+                margin-bottom: 30px;
+            }
+
+            .form-input {
+                height: 55px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         ACCOUNT CONTAINER
+    ====================================================== -->
+
+    <main class="account-container">
+
+
+        <!-- =================================================
+             LOGO
+        ================================================== -->
+
+        <div class="logo-container">
+
+            <img
+                src="logo.png"
+                alt="MYP Haven Logo"
+                class="logo"
+            >
+
+        </div>
+
+
+        <!-- =================================================
+             TITLE
+        ================================================== -->
+
+        <h1 class="page-title">
+            Create your MYP Haven account
+        </h1>
+
+        <p class="page-subtitle">
+            Create your free account to begin your MYP Haven journey.
+        </p>
+
+
+        <!-- =================================================
+             ERROR MESSAGE
+        ================================================== -->
+
+        <div
+            class="error-message"
+            id="error-message"
+        ></div>
+
+
+        <!-- =================================================
+             FORM
+        ================================================== -->
+
+        <form
+            class="account-form"
+            id="create-account-form"
+        >
+
+
+            <!-- FULL NAME -->
+
+            <div class="form-group">
+
+                <label
+                    class="form-label"
+                    for="full-name"
+                >
+                    Full Name
+                    <span class="required">*</span>
+                </label>
+
+                <input
+                    class="form-input"
+                    type="text"
+                    id="full-name"
+                    name="fullName"
+                    placeholder="Enter your full name"
+                    autocomplete="name"
+                    required
+                >
+
+            </div>
+
+
+            <!-- EMAIL -->
+
+            <div class="form-group">
+
+                <label
+                    class="form-label"
+                    for="email"
+                >
+                    Email
+                    <span class="required">*</span>
+                </label>
+
+                <input
+                    class="form-input"
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email address"
+                    autocomplete="email"
+                    required
+                >
+
+            </div>
+
+
+            <!-- PASSWORD -->
+
+            <div class="form-group">
+
+                <label
+                    class="form-label"
+                    for="password"
+                >
+                    Password
+                    <span class="required">*</span>
+                </label>
+
+                <input
+                    class="form-input"
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Create a password"
+                    autocomplete="new-password"
+                    required
+                >
+
+                <p class="password-note">
+                    Your password should be at least 6 characters long.
+                </p>
+
+            </div>
+
+
+            <!-- CONFIRM PASSWORD -->
+
+            <div class="form-group">
+
+                <label
+                    class="form-label"
+                    for="confirm-password"
+                >
+                    Confirm Password
+                    <span class="required">*</span>
+                </label>
+
+                <input
+                    class="form-input"
+                    type="password"
+                    id="confirm-password"
+                    name="confirmPassword"
+                    placeholder="Enter your password again"
+                    autocomplete="new-password"
+                    required
+                >
+
+            </div>
+
+
+            <!-- AGREEMENT -->
+
+            <div class="agreement">
+
+                <input
+                    type="checkbox"
+                    id="agreement"
+                    required
+                >
+
+                <label for="agreement">
+
+                    I agree to MYP Haven's
+                    <a href="terms.html" target="_blank">
+                        Terms
+                    </a>
+                    and
+                    <a href="privacy.html" target="_blank">
+                        Privacy Policy
+                    </a>.
+
+                </label>
+
+            </div>
+
+
+            <!-- CREATE BUTTON -->
+
+            <button
+                class="create-button"
+                id="create-button"
+                type="submit"
+            >
+                Create Account
+            </button>
+
+
+            <!-- LOGIN BUTTON -->
+
+            <button
+                class="login-button"
+                type="button"
+                onclick="window.location.href='login.html'"
+            >
+                Already have an account? Log in
+            </button>
+
+
+        </form>
+
+    </main>
+
+
+    <!-- =====================================================
+         FIREBASE
+    ====================================================== -->
+
+    <script type="module">
+
+        /*
+         * Firebase imports
+         */
+
+        import {
+            initializeApp
+        } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
+
+        import {
+            getAuth,
+            createUserWithEmailAndPassword,
+            updateProfile
+        } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
+
+
+        /*
+         * Your Firebase configuration
+         */
+
+        const firebaseConfig = {
+
+            apiKey:
+                "AIzaSyBNI4CR26Re0xdh-T0XdVyb6fFN7SPgPNA",
+
+            authDomain:
+                "the-myp-haven.firebaseapp.com",
+
+            projectId:
+                "the-myp-haven",
+
+            storageBucket:
+                "the-myp-haven.firebasestorage.app",
+
+            messagingSenderId:
+                "904577455533",
+
+            appId:
+                "1:904577455533:web:1d918ee8a3caa547eefd24"
+
+        };
+
+
+        /*
+         * Initialize Firebase
+         */
+
+        const app =
+            initializeApp(firebaseConfig);
+
+
+        /*
+         * Initialize Authentication
+         */
+
+        const auth =
+            getAuth(app);
+
+
+        /* =================================================
+           ELEMENTS
+        ================================================== */
+
+        const form =
+            document.getElementById(
+                "create-account-form"
+            );
+
+        const fullName =
+            document.getElementById(
+                "full-name"
+            );
+
+        const email =
+            document.getElementById(
+                "email"
+            );
+
+        const password =
+            document.getElementById(
+                "password"
+            );
+
+        const confirmPassword =
+            document.getElementById(
+                "confirm-password"
+            );
+
+        const agreement =
+            document.getElementById(
+                "agreement"
+            );
+
+        const createButton =
+            document.getElementById(
+                "create-button"
+            );
+
+        const errorMessage =
+            document.getElementById(
+                "error-message"
+            );
+
+
+        /* =================================================
+           ERROR DISPLAY
+        ================================================== */
+
+        function showError(message) {
+
+            errorMessage.textContent =
+                message;
+
+            errorMessage.classList.add(
+                "show"
+            );
+
+        }
+
+
+        function clearError() {
+
+            errorMessage.textContent =
+                "";
+
+            errorMessage.classList.remove(
+                "show"
+            );
+
+        }
+
+
+        /* =================================================
+           CREATE ACCOUNT
+        ================================================== */
+
+        form.addEventListener(
+            "submit",
+            async event => {
+
+                event.preventDefault();
+
+                clearError();
+
+
+                /*
+                 * Get values
+                 */
+
+                const name =
+                    fullName.value.trim();
+
+                const userEmail =
+                    email.value.trim();
+
+                const userPassword =
+                    password.value;
+
+                const confirmedPassword =
+                    confirmPassword.value;
+
+
+                /*
+                 * Check name
+                 */
+
+                if (!name) {
+
+                    showError(
+                        "Please enter your full name."
+                    );
+
+                    fullName.focus();
+
+                    return;
+
+                }
+
+
+                /*
+                 * Check password length
+                 */
+
+                if (userPassword.length < 6) {
+
+                    showError(
+                        "Your password must be at least 6 characters long."
+                    );
+
+                    password.focus();
+
+                    return;
+
+                }
+
+
+                /*
+                 * Check passwords
+                 */
+
+                if (
+                    userPassword !==
+                    confirmedPassword
+                ) {
+
+                    showError(
+                        "The passwords do not match."
+                    );
+
+                    confirmPassword.focus();
+
+                    return;
+
+                }
+
+
+                /*
+                 * Check agreement
+                 */
+
+                if (!agreement.checked) {
+
+                    showError(
+                        "Please agree to the Terms and Privacy Policy before creating your account."
+                    );
+
+                    return;
+
+                }
+
+
+                /*
+                 * Disable button
+                 */
+
+                createButton.disabled =
+                    true;
+
+                createButton.textContent =
+                    "Creating Account...";
+
+
+                try {
+
+                    /*
+                     * Create Firebase account
+                     */
+
+                    const userCredential =
+                        await createUserWithEmailAndPassword(
+                            auth,
+                            userEmail,
+                            userPassword
+                        );
+
+
+                    /*
+                     * Get newly created user
+                     */
+
+                    const user =
+                        userCredential.user;
+
+
+                    /*
+                     * Save the student's
+                     * display name
+                     */
+
+                    await updateProfile(
+                        user,
+                        {
+                            displayName: name
+                        }
+                    );
+
+
+                    /*
+                     * Save temporary information
+                     * for the survey.
+                     */
+
+                    localStorage.setItem(
+                        "mypHavenName",
+                        name
+                    );
+
+
+                    localStorage.setItem(
+                        "mypHavenEmail",
+                        userEmail
+                    );
+
+
+                    /*
+                     * Send student to survey.
+                     */
+
+                    window.location.href =
+                        "survey.html";
+
+
+                } catch (error) {
+
+                    console.error(
+                        "Firebase error:",
+                        error
+                    );
+
+
+                    /*
+                     * Firebase error messages
+                     */
+
+                    if (
+                        error.code ===
+                        "auth/email-already-in-use"
+                    ) {
+
+                        showError(
+                            "An account with this email already exists. Please log in instead."
+                        );
+
+                    }
+
+                    else if (
+                        error.code ===
+                        "auth/invalid-email"
+                    ) {
+
+                        showError(
+                            "Please enter a valid email address."
+                        );
+
+                    }
+
+                    else if (
+                        error.code ===
+                        "auth/weak-password"
+                    ) {
+
+                        showError(
+                            "Your password is too weak. Please choose a stronger password."
+                        );
+
+                    }
+
+                    else if (
+                        error.code ===
+                        "auth/network-request-failed"
+                    ) {
+
+                        showError(
+                            "A network error occurred. Please check your internet connection and try again."
+                        );
+
+                    }
+
+                    else {
+
+                        showError(
+                            "We couldn't create your account right now. Please try again."
+                        );
+
+                    }
+
+
+                    /*
+                     * Re-enable button
+                     */
+
+                    createButton.disabled =
+                        false;
+
+                    createButton.textContent =
+                        "Create Account";
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>
