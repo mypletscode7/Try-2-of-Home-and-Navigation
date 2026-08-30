@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MYP Haven | Log In</title>
+
+    <!-- =====================================================
+         GOOGLE FONTS
+    ====================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        /* =====================================================
+           GLOBAL
+        ====================================================== */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+
+            background: #8B5CF6;
+
+            font-family: "DM Sans", sans-serif;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 40px 20px;
+        }
+
+
+        /* =====================================================
+           MAIN CONTAINER
+        ====================================================== */
+
+        .login-container {
+            width: 100%;
+            max-width: 900px;
+
+            background: #FFFFFF;
+
+            border-radius: 30px;
+
+            padding: 55px 65px;
+
+            box-shadow:
+                0 25px 70px rgba(0, 0, 0, 0.15);
+        }
+
+
+        /* =====================================================
+           LOGO
+        ====================================================== */
+
+        .logo-container {
+            text-align: center;
+
+            margin-bottom: 35px;
+        }
+
+        .logo {
+            width: 120px;
+            max-width: 40%;
+
+            height: auto;
+        }
+
+
+        /* =====================================================
+           TITLE
+        ====================================================== */
+
+        .page-title {
+            color: #8B5CF6;
+
+            font-size: clamp(2.5rem, 6vw, 5rem);
+
+            font-weight: 700;
+
+            line-height: 1;
+
+            text-align: left;
+
+            margin-bottom: 12px;
+        }
+
+        .page-subtitle {
+            color: #666666;
+
+            font-size: 1rem;
+
+            line-height: 1.5;
+
+            text-align: left;
+
+            margin-bottom: 40px;
+        }
+
+
+        /* =====================================================
+           FORM
+        ====================================================== */
+
+        .login-form {
+            width: 100%;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-label {
+            display: block;
+
+            color: #222222;
+
+            font-size: 0.95rem;
+
+            font-weight: 700;
+
+            margin-bottom: 9px;
+        }
+
+        .required {
+            color: #FF4D6D;
+        }
+
+        .form-input {
+            width: 100%;
+
+            height: 58px;
+
+            padding: 0 18px;
+
+            border: 2px solid #E5E5E5;
+
+            border-radius: 15px;
+
+            background: #FFFFFF;
+
+            color: #222222;
+
+            font-family: "DM Sans", sans-serif;
+
+            font-size: 1rem;
+
+            outline: none;
+
+            transition:
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .form-input:focus {
+            border-color: #8B5CF6;
+
+            box-shadow:
+                0 0 0 4px rgba(139, 92, 246, 0.12);
+        }
+
+
+        /* =====================================================
+           ERROR MESSAGE
+        ====================================================== */
+
+        .error-message {
+            display: none;
+
+            width: 100%;
+
+            padding: 14px 17px;
+
+            margin-bottom: 22px;
+
+            border-radius: 14px;
+
+            background: #FFF0F3;
+
+            color: #D92D50;
+
+            font-size: 0.9rem;
+
+            font-weight: 600;
+
+            line-height: 1.45;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+
+        /* =====================================================
+           LOGIN BUTTON
+        ====================================================== */
+
+        .login-button {
+            width: 100%;
+
+            height: 60px;
+
+            border: none;
+
+            border-radius: 16px;
+
+            background: #8B5CF6;
+
+            color: #FFFFFF;
+
+            font-family: "DM Sans", sans-serif;
+
+            font-size: 1rem;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease,
+                opacity 0.2s ease;
+        }
+
+        .login-button:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 25px rgba(139, 92, 246, 0.25);
+        }
+
+        .login-button:active {
+            transform: scale(0.98);
+        }
+
+        .login-button:disabled {
+            opacity: 0.65;
+
+            cursor: not-allowed;
+
+            transform: none;
+
+            box-shadow: none;
+        }
+
+
+        /* =====================================================
+           CREATE ACCOUNT BUTTON
+        ====================================================== */
+
+        .create-button {
+            width: 100%;
+
+            height: 52px;
+
+            margin-top: 15px;
+
+            border: 2px solid #8B5CF6;
+
+            border-radius: 15px;
+
+            background: #FFFFFF;
+
+            color: #8B5CF6;
+
+            font-family: "DM Sans", sans-serif;
+
+            font-size: 0.95rem;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition:
+                background 0.2s ease,
+                color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .create-button:hover {
+            background: #8B5CF6;
+
+            color: #FFFFFF;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =====================================================
+           FORGOT PASSWORD
+        ====================================================== */
+
+        .forgot-password {
+            display: block;
+
+            margin-top: 20px;
+
+            text-align: center;
+
+            color: #8B5CF6;
+
+            font-size: 0.9rem;
+
+            font-weight: 600;
+
+            text-decoration: none;
+
+            cursor: pointer;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ====================================================== */
+
+        @media (max-width: 600px) {
+
+            body {
+                padding: 20px 12px;
+            }
+
+            .login-container {
+                padding: 40px 24px;
+
+                border-radius: 24px;
+            }
+
+            .logo {
+                width: 100px;
+            }
+
+            .page-title {
+                font-size: 2.6rem;
+            }
+
+            .page-subtitle {
+                font-size: 0.92rem;
+
+                margin-bottom: 30px;
+            }
+
+            .form-input {
+                height: 55px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         LOGIN CONTAINER
+    ====================================================== -->
+
+    <main class="login-container">
+
+
+        <!-- =================================================
+             LOGO
+        ================================================== -->
+
+        <div class="logo-container">
+
+            <img
+                src="logo.png"
+                alt="MYP Haven Logo"
+                class="logo"
+            >
+
+        </div>
+
+
+        <!-- =================================================
+             TITLE
+        ================================================== -->
+
+        <h1 class="page-title">
+            Welcome back
+        </h1>
+
+        <p class="page-subtitle">
+            Log in to continue your MYP Haven journey.
+        </p>
+
+
+        <!-- =================================================
+             ERROR MESSAGE
+        ================================================== -->
+
+        <div
+            class="error-message"
+            id="error-message"
+        ></div>
+
+
+        <!-- =================================================
+             LOGIN FORM
+        ================================================== -->
+
+        <form
+            class="login-form"
+            id="login-form"
+        >
+
+
+            <!-- EMAIL -->
+
+            <div class="form-group">
+
+                <label
+                    class="form-label"
+                    for="email"
+                >
+                    Email
+                    <span class="required">*</span>
+                </label>
+
+                <input
+                    class="form-input"
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email address"
+                    autocomplete="email"
+                    required
+                >
+
+            </div>
+
+
+            <!-- PASSWORD -->
+
+            <div class="form-group">
+
+                <label
+                    class="form-label"
+                    for="password"
+                >
+                    Password
+                    <span class="required">*</span>
+                </label>
+
+                <input
+                    class="form-input"
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    autocomplete="current-password"
+                    required
+                >
+
+            </div>
+
+
+            <!-- LOGIN -->
+
+            <button
+                class="login-button"
+                id="login-button"
+                type="submit"
+            >
+                Log In
+            </button>
+
+
+            <!-- CREATE ACCOUNT -->
+
+            <button
+                class="create-button"
+                type="button"
+                onclick="window.location.href='create-account.html'"
+            >
+                Don't have an account? Create one
+            </button>
+
+
+            <!-- FORGOT PASSWORD -->
+
+            <button
+                class="forgot-password"
+                id="forgot-password"
+                type="button"
+            >
+                Forgot your password?
+            </button>
+
+
+        </form>
+
+    </main>
+
+
+    <!-- =====================================================
+         FIREBASE
+    ====================================================== -->
+
+    <script type="module">
+
+        /* =================================================
+           FIREBASE IMPORTS
+        ================================================== */
+
+        import {
+            initializeApp
+        } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
+
+        import {
+            getAuth,
+            signInWithEmailAndPassword,
+            sendPasswordResetEmail
+        } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
+
+
+        /* =================================================
+           FIREBASE CONFIGURATION
+        ================================================== */
+
+        const firebaseConfig = {
+
+            apiKey:
+                "AIzaSyBNI4CR26Re0xdh-T0XdVyb6fFN7SPgPNA",
+
+            authDomain:
+                "the-myp-haven.firebaseapp.com",
+
+            projectId:
+                "the-myp-haven",
+
+            storageBucket:
+                "the-myp-haven.firebasestorage.app",
+
+            messagingSenderId:
+                "904577455533",
+
+            appId:
+                "1:904577455533:web:1d918ee8a3caa547eefd24"
+
+        };
+
+
+        /* =================================================
+           INITIALIZE FIREBASE
+        ================================================== */
+
+        const app =
+            initializeApp(firebaseConfig);
+
+
+        const auth =
+            getAuth(app);
+
+
+        /* =================================================
+           ELEMENTS
+        ================================================== */
+
+        const form =
+            document.getElementById(
+                "login-form"
+            );
+
+        const email =
+            document.getElementById(
+                "email"
+            );
+
+        const password =
+            document.getElementById(
+                "password"
+            );
+
+        const loginButton =
+            document.getElementById(
+                "login-button"
+            );
+
+        const errorMessage =
+            document.getElementById(
+                "error-message"
+            );
+
+        const forgotPassword =
+            document.getElementById(
+                "forgot-password"
+            );
+
+
+        /* =================================================
+           ERROR DISPLAY
+        ================================================== */
+
+        function showError(message) {
+
+            errorMessage.textContent =
+                message;
+
+            errorMessage.classList.add(
+                "show"
+            );
+
+        }
+
+
+        function clearError() {
+
+            errorMessage.textContent =
+                "";
+
+            errorMessage.classList.remove(
+                "show"
+            );
+
+        }
+
+
+        /* =================================================
+           LOGIN
+        ================================================== */
+
+        form.addEventListener(
+            "submit",
+            async event => {
+
+                event.preventDefault();
+
+                clearError();
+
+
+                const userEmail =
+                    email.value.trim();
+
+                const userPassword =
+                    password.value;
+
+
+                loginButton.disabled =
+                    true;
+
+                loginButton.textContent =
+                    "Logging In...";
+
+
+                try {
+
+                    /*
+                     * Firebase checks the
+                     * email and password.
+                     */
+
+                    const userCredential =
+                        await signInWithEmailAndPassword(
+                            auth,
+                            userEmail,
+                            userPassword
+                        );
+
+
+                    /*
+                     * Login successful.
+                     *
+                     * Firebase keeps the
+                     * student authenticated.
+                     */
+
+                    const user =
+                        userCredential.user;
+
+
+                    /*
+                     * Save basic information
+                     * locally for the interface.
+                     */
+
+                    if (user.displayName) {
+
+                        localStorage.setItem(
+                            "mypHavenName",
+                            user.displayName
+                        );
+
+                    }
+
+                    localStorage.setItem(
+                        "mypHavenEmail",
+                        user.email
+                    );
+
+
+                    /*
+                     * Send the student
+                     * to the dashboard.
+                     */
+
+                    window.location.href =
+                        "dashboard.html";
+
+
+                } catch (error) {
+
+                    console.error(
+                        "Firebase login error:",
+                        error
+                    );
+
+
+                    if (
+                        error.code ===
+                        "auth/invalid-credential"
+                    ) {
+
+                        showError(
+                            "The email or password is incorrect. Please check your details and try again."
+                        );
+
+                    }
+
+                    else if (
+                        error.code ===
+                        "auth/user-not-found"
+                    ) {
+
+                        showError(
+                            "No MYP Haven account was found with this email."
+                        );
+
+                    }
+
+                    else if (
+                        error.code ===
+                        "auth/wrong-password"
+                    ) {
+
+                        showError(
+                            "The password is incorrect. Please try again."
+                        );
+
+                    }
+
+                    else if (
+                        error.code ===
+                        "auth/invalid-email"
+                    ) {
+
+                        showError(
+                            "Please enter a valid email address."
+                        );
+
+                    }
+
+                    else if (
+                        error.code ===
+                        "auth/too-many-requests"
+                    ) {
+
+                        showError(
+                            "Too many login attempts. Please wait a little while and try again."
+                        );
+
+                    }
+
+                    else if (
+                        error.code ===
+                        "auth/network-request-failed"
+                    ) {
+
+                        showError(
+                            "A network error occurred. Please check your internet connection."
+                        );
+
+                    }
+
+                    else {
+
+                        showError(
+                            "We couldn't log you in right now. Please try again."
+                        );
+
+                    }
+
+
+                    loginButton.disabled =
+                        false;
+
+                    loginButton.textContent =
+                        "Log In";
+
+                }
+
+            }
+        );
+
+
+        /* =================================================
+           FORGOT PASSWORD
+        ================================================== */
+
+        forgotPassword.addEventListener(
+            "click",
+            async () => {
+
+                clearError();
+
+
+                const userEmail =
+                    email.value.trim();
+
+
+                if (!userEmail) {
+
+                    showError(
+                        "Enter your email address first, then click Forgot your password?"
+                    );
+
+                    email.focus();
+
+                    return;
+
+                }
+
+
+                try {
+
+                    await sendPasswordResetEmail(
+                        auth,
+                        userEmail
+                    );
+
+
+                    showError(
+                        "Password reset email sent. Check your inbox for instructions."
+                    );
+
+
+                } catch (error) {
+
+                    console.error(
+                        "Password reset error:",
+                        error
+                    );
+
+
+                    if (
+                        error.code ===
+                        "auth/user-not-found"
+                    ) {
+
+                        showError(
+                            "No MYP Haven account was found with this email."
+                        );
+
+                    }
+
+                    else if (
+                        error.code ===
+                        "auth/invalid-email"
+                    ) {
+
+                        showError(
+                            "Please enter a valid email address."
+                        );
+
+                    }
+
+                    else {
+
+                        showError(
+                            "We couldn't send the password reset email. Please try again."
+                        );
+
+                    }
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>
