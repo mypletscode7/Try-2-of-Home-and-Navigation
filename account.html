@@ -1,106 +1,225 @@
 ```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>MYP Haven | Account</title>
 
+    <!-- =====================================================
+         GOOGLE FONTS
+    ====================================================== -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =====================================================
+         STYLES
+    ====================================================== -->
 
     <style>
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
+
         body {
             min-height: 100vh;
+
             background: #8B5CF6;
+
             font-family: "DM Sans", sans-serif;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             padding: 30px;
         }
+
 
         .account-container {
             width: 100%;
             max-width: 900px;
-            background: white;
+
+            background: #FFFFFF;
+
             border-radius: 30px;
+
             padding: 60px 40px;
+
             text-align: center;
+
+            box-shadow:
+                0 25px 70px rgba(0, 0, 0, 0.18);
         }
+
 
         .logo {
             width: 120px;
+
             margin-bottom: 45px;
+
+            display: block;
+
+            margin-left: auto;
+            margin-right: auto;
         }
+
 
         .options {
             display: flex;
+
             flex-direction: column;
+
             gap: 20px;
+
             max-width: 600px;
+
             margin: 0 auto;
         }
 
+
         .account-button {
+            width: 100%;
+
             border: none;
+
             border-radius: 18px;
+
             padding: 20px;
+
             font-family: "DM Sans", sans-serif;
+
             font-size: 18px;
+
             font-weight: 600;
+
             cursor: pointer;
+
             background: #8B5CF6;
-            color: white;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+            color: #FFFFFF;
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease,
+                background 0.2s ease;
         }
+
 
         .account-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+
+            box-shadow:
+                0 8px 20px rgba(0, 0, 0, 0.12);
+
+            background: #7C3AED;
         }
 
+
+        .account-button:active {
+            transform: scale(0.98);
+        }
+
+
         @media (max-width: 600px) {
+
+            body {
+                padding: 20px;
+            }
+
+
             .account-container {
                 padding: 45px 25px;
+
+                border-radius: 24px;
             }
+
+
+            .logo {
+                width: 100px;
+
+                margin-bottom: 35px;
+            }
+
 
             .account-button {
                 font-size: 16px;
+
+                padding: 18px;
             }
+
         }
+
     </style>
+
 </head>
+
 
 <body>
 
+
+    <!-- =====================================================
+         ACCOUNT SELECTION
+    ====================================================== -->
+
     <main class="account-container">
 
-        <!-- Replace this with your actual MYP Haven logo -->
-        <img src="logo.png" alt="MYP Haven Logo" class="logo">
+
+        <!-- MYP HAVEN LOGO -->
+
+        <img
+            src="logo.png"
+            alt="MYP Haven Logo"
+            class="logo"
+        >
+
+
+        <!-- ACCOUNT OPTIONS -->
 
         <div class="options">
 
-            <button class="account-button" onclick="window.location.href='create-account.html'">
+
+            <!-- CREATE ACCOUNT -->
+
+            <button
+                class="account-button"
+                type="button"
+                onclick="window.location.href='create-account.html'"
+            >
                 Don't have an account? Create one
             </button>
 
-            <button class="account-button" onclick="window.location.href='login.html'">
+
+            <!-- LOGIN -->
+
+            <button
+                class="account-button"
+                type="button"
+                onclick="window.location.href='login.html'"
+            >
                 Already have an account? Log back in.
             </button>
+
 
         </div>
 
     </main>
 
+
 </body>
+
 </html>
 ```
