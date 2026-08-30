@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -194,6 +195,15 @@
             transform: scale(0.96);
         }
 
+        .hero-button:focus-visible,
+        .copy-email-button:focus-visible,
+        .back-to-top:focus-visible,
+        .faq-question:focus-visible,
+        .testimonial-dot:focus-visible {
+            outline: 3px solid #FFFFFF;
+            outline-offset: 4px;
+        }
+
 
         /* =====================================================
            CONFETTI
@@ -257,10 +267,6 @@
 
             background: #FFFFFF;
         }
-
-        /*
-           32% #FF4D6D over white.
-        */
 
         .about-section::before {
             content: "";
@@ -427,10 +433,6 @@
 
             background: #FFFFFF;
         }
-
-        /*
-           32% #FF8A3D over white.
-        */
 
         .mission-section::before {
             content: "";
@@ -1845,6 +1847,7 @@
             loop
             playsinline
             preload="auto"
+            aria-hidden="true"
         >
 
             <source
@@ -1914,121 +1917,73 @@
 
             <p class="about-description">
 
-                <span
-                    class="about-word"
-                    style="--word-index: 0"
-                >
+                <span class="about-word" style="--word-index: 0">
                     <span class="about-highlight">
                         MYP Haven
                     </span>
                 </span>
 
-                <span
-                    class="about-word"
-                    style="--word-index: 1"
-                >
+                <span class="about-word" style="--word-index: 1">
                     is
                 </span>
 
-                <span
-                    class="about-word"
-                    style="--word-index: 2"
-                >
+                <span class="about-word" style="--word-index: 2">
                     an
                 </span>
 
-                <span
-                    class="about-word"
-                    style="--word-index: 3"
-                >
+                <span class="about-word" style="--word-index: 3">
                     <span class="about-highlight">
                         all-in-one platform
                     </span>
                 </span>
 
-                <span
-                    class="about-word"
-                    style="--word-index: 4"
-                >
+                <span class="about-word" style="--word-index: 4">
                     designed
                 </span>
 
-                <span
-                    class="about-word"
-                    style="--word-index: 5"
-                >
+                <span class="about-word" style="--word-index: 5">
                     to
                 </span>
 
-                <span
-                    class="about-word"
-                    style="--word-index: 6"
-                >
+                <span class="about-word" style="--word-index: 6">
                     help
                 </span>
 
-                <span
-                    class="about-word"
-                    style="--word-index: 7"
-                >
+                <span class="about-word" style="--word-index: 7">
                     <span class="about-highlight">
                         IB Middle Years Programme students
                     </span>
                 </span>
 
-                <span
-                    class="about-word"
-                    style="--word-index: 8"
-                >
+                <span class="about-word" style="--word-index: 8">
                     stay
                 </span>
 
-                <span
-                    class="about-word"
-                    style="--word-index: 9"
-                >
+                <span class="about-word" style="--word-index: 9">
                     organized,
                 </span>
 
-                <span
-                    class="about-word"
-                    style="--word-index: 10"
-                >
+                <span class="about-word" style="--word-index: 10">
                     build
                 </span>
 
-                <span
-                    class="about-word"
-                    style="--word-index: 11"
-                >
+                <span class="about-word" style="--word-index: 11">
                     confidence,
                 </span>
 
-                <span
-                    class="about-word"
-                    style="--word-index: 12"
-                >
+                <span class="about-word" style="--word-index: 12">
                     and
                 </span>
 
-                <span
-                    class="about-word"
-                    style="--word-index: 13"
-                >
+                <span class="about-word" style="--word-index: 13">
                     achieve
                 </span>
 
-                <span
-                    class="about-word"
-                    style="--word-index: 14"
-                >
+                <span class="about-word" style="--word-index: 14">
                     their
                 </span>
 
-                <span
-                    class="about-word"
-                    style="--word-index: 15"
-                >
+                <span class="about-word" style="--word-index: 15">
                     <span class="about-highlight">
                         academic goals.
                     </span>
@@ -2050,13 +2005,9 @@
         id="mission"
     >
 
-        <div
-            class="mission-circle mission-circle-one"
-        ></div>
+        <div class="mission-circle mission-circle-one"></div>
 
-        <div
-            class="mission-circle mission-circle-two"
-        ></div>
+        <div class="mission-circle mission-circle-two"></div>
 
         <div class="mission-content">
 
@@ -2066,9 +2017,7 @@
                     Built to make the MYP
                 </span>
 
-                <span
-                    class="mission-white mission-effortless"
-                >
+                <span class="mission-white mission-effortless">
                     effortless
                 </span>
 
@@ -2118,256 +2067,134 @@
 
             <div class="features-grid">
 
-
                 <article class="feature-card">
-
                     <div class="feature-text">
-
-                        <div class="feature-number">
-                            FEATURE 1
-                        </div>
-
-                        <div class="feature-name">
-                            Dashboard Home
-                        </div>
-
+                        <div class="feature-number">FEATURE 1</div>
+                        <div class="feature-name">Dashboard Home</div>
                         <div class="feature-description">
                             Gives students a quick overview of their tasks, study schedule, MYP progress, goals, upcoming assessments, and quick actions.
                         </div>
-
                     </div>
 
-                    <div class="feature-emoji">
-                        🏠
-                    </div>
-
+                    <div class="feature-emoji">🏠</div>
                 </article>
 
 
                 <article class="feature-card">
-
                     <div class="feature-text">
-
-                        <div class="feature-number">
-                            FEATURE 2
-                        </div>
-
-                        <div class="feature-name">
-                            My Subjects
-                        </div>
-
+                        <div class="feature-number">FEATURE 2</div>
+                        <div class="feature-name">My Subjects</div>
                         <div class="feature-description">
                             Allows students to organize their MYP subjects, view subject-related tasks and assessments, access resources, and track progress.
                         </div>
-
                     </div>
 
-                    <div class="feature-emoji">
-                        📚
-                    </div>
-
+                    <div class="feature-emoji">📚</div>
                 </article>
 
 
                 <article class="feature-card">
-
                     <div class="feature-text">
-
-                        <div class="feature-number">
-                            FEATURE 3
-                        </div>
-
-                        <div class="feature-name">
-                            Task & Assignment Tracker
-                        </div>
-
+                        <div class="feature-number">FEATURE 3</div>
+                        <div class="feature-name">Task & Assignment Tracker</div>
                         <div class="feature-description">
                             Helps students manage assignments, deadlines, priorities, and completion status in one place.
                         </div>
-
                     </div>
 
-                    <div class="feature-emoji">
-                        ✅
-                    </div>
-
+                    <div class="feature-emoji">✅</div>
                 </article>
 
 
                 <article class="feature-card">
-
                     <div class="feature-text">
-
-                        <div class="feature-number">
-                            FEATURE 4
-                        </div>
-
-                        <div class="feature-name">
-                            Study Scheduler
-                        </div>
-
+                        <div class="feature-number">FEATURE 4</div>
+                        <div class="feature-name">Study Scheduler</div>
                         <div class="feature-description">
                             Helps students plan and organize study sessions using daily schedules and weekly calendars.
                         </div>
-
                     </div>
 
-                    <div class="feature-emoji">
-                        🗓️
-                    </div>
-
+                    <div class="feature-emoji">🗓️</div>
                 </article>
 
 
                 <article class="feature-card">
-
                     <div class="feature-text">
-
-                        <div class="feature-number">
-                            FEATURE 5
-                        </div>
-
-                        <div class="feature-name">
-                            MYP Assessment Tracker
-                        </div>
-
+                        <div class="feature-number">FEATURE 5</div>
+                        <div class="feature-name">MYP Assessment Tracker</div>
                         <div class="feature-description">
                             Allows students to track their achievement levels, assessment history, MYP criteria, target levels, and progress.
                         </div>
-
                     </div>
 
-                    <div class="feature-emoji">
-                        🎯
-                    </div>
-
+                    <div class="feature-emoji">🎯</div>
                 </article>
 
 
                 <article class="feature-card">
-
                     <div class="feature-text">
-
-                        <div class="feature-number">
-                            FEATURE 6
-                        </div>
-
-                        <div class="feature-name">
-                            Goals & Progress
-                        </div>
-
+                        <div class="feature-number">FEATURE 6</div>
+                        <div class="feature-name">Goals & Progress</div>
                         <div class="feature-description">
                             Allows students to set academic and personal goals, establish target grades, and monitor their progress.
                         </div>
-
                     </div>
 
-                    <div class="feature-emoji">
-                        📈
-                    </div>
-
+                    <div class="feature-emoji">📈</div>
                 </article>
 
 
                 <article class="feature-card">
-
                     <div class="feature-text">
-
-                        <div class="feature-number">
-                            FEATURE 7
-                        </div>
-
-                        <div class="feature-name">
-                            MYP Resources
-                        </div>
-
+                        <div class="feature-number">FEATURE 7</div>
+                        <div class="feature-name">MYP Resources</div>
                         <div class="feature-description">
                             Provides students with information and resources to help them understand the MYP and its requirements.
                         </div>
-
                     </div>
 
-                    <div class="feature-emoji">
-                        📖
-                    </div>
-
+                    <div class="feature-emoji">📖</div>
                 </article>
 
 
                 <article class="feature-card">
-
                     <div class="feature-text">
-
-                        <div class="feature-number">
-                            FEATURE 8
-                        </div>
-
-                        <div class="feature-name">
-                            Command-Term Database
-                        </div>
-
+                        <div class="feature-number">FEATURE 8</div>
+                        <div class="feature-name">Command-Term Database</div>
                         <div class="feature-description">
                             Helps students understand MYP command terms, what they require, and how to use them in different subjects.
                         </div>
-
                     </div>
 
-                    <div class="feature-emoji">
-                        🔎
-                    </div>
-
+                    <div class="feature-emoji">🔎</div>
                 </article>
 
 
                 <article class="feature-card">
-
                     <div class="feature-text">
-
-                        <div class="feature-number">
-                            FEATURE 9
-                        </div>
-
-                        <div class="feature-name">
-                            Criterion Self-Assessment
-                        </div>
-
+                        <div class="feature-number">FEATURE 9</div>
+                        <div class="feature-name">Criterion Self-Assessment</div>
                         <div class="feature-description">
                             Allows students to check their work against MYP criteria, reflect on their work, and identify areas for improvement.
                         </div>
-
                     </div>
 
-                    <div class="feature-emoji">
-                        📝
-                    </div>
-
+                    <div class="feature-emoji">📝</div>
                 </article>
 
 
                 <article class="feature-card">
-
                     <div class="feature-text">
-
-                        <div class="feature-number">
-                            FEATURE 10
-                        </div>
-
-                        <div class="feature-name">
-                            Study & Work Support
-                        </div>
-
+                        <div class="feature-number">FEATURE 10</div>
+                        <div class="feature-name">Study & Work Support</div>
                         <div class="feature-description">
                             Provides students with strategies for studying, managing time, taking notes, revising, avoiding procrastination, and preparing for assessments.
                         </div>
-
                     </div>
 
-                    <div class="feature-emoji">
-                        🧠
-                    </div>
-
+                    <div class="feature-emoji">🧠</div>
                 </article>
-
 
             </div>
 
@@ -2402,7 +2229,6 @@
 
 
             <div class="testimonial-slider">
-
 
                 <article class="testimonial-card active">
 
@@ -2498,16 +2324,22 @@
                 <button
                     class="testimonial-dot active"
                     aria-label="Show testimonial 1"
+                    aria-current="true"
+                    type="button"
                 ></button>
 
                 <button
                     class="testimonial-dot"
                     aria-label="Show testimonial 2"
+                    aria-current="false"
+                    type="button"
                 ></button>
 
                 <button
                     class="testimonial-dot"
                     aria-label="Show testimonial 3"
+                    aria-current="false"
+                    type="button"
                 ></button>
 
             </div>
@@ -2799,7 +2631,6 @@
 
     <script>
 
-
         /* =================================================
            HERO TYPING
         ================================================= */
@@ -2814,35 +2645,27 @@
             document.getElementById("subtitle");
 
 
-        function typeText(
-            element,
-            text,
-            speed
-        ) {
+        function typeText(element, text, speed) {
 
             return new Promise(resolve => {
 
                 let index = 0;
 
-                const interval =
-                    setInterval(() => {
+                const interval = setInterval(() => {
 
-                        element.textContent +=
-                            text[index];
+                    element.textContent += text[index];
 
-                        index++;
+                    index++;
 
-                        if (
-                            index >= text.length
-                        ) {
+                    if (index >= text.length) {
 
-                            clearInterval(interval);
+                        clearInterval(interval);
 
-                            resolve();
+                        resolve();
 
-                        }
+                    }
 
-                    }, speed);
+                }, speed);
 
             });
 
@@ -2884,26 +2707,21 @@
         ================================================= */
 
         const mypColors = [
-
             "#FF4D6D",
             "#FFD23F",
             "#39D6C0",
             "#8B5CF6"
-
         ];
 
         let colorIndex = 0;
 
-        mypWord.style.color =
-            mypColors[0];
+        mypWord.style.color = mypColors[0];
 
 
         setInterval(() => {
 
             colorIndex =
-                (colorIndex + 1)
-                %
-                mypColors.length;
+                (colorIndex + 1) % mypColors.length;
 
             mypWord.style.color =
                 mypColors[colorIndex];
@@ -2916,132 +2734,115 @@
         ================================================= */
 
         const unlockButton =
-            document.getElementById(
-                "unlock-button"
-            );
+            document.getElementById("unlock-button");
 
         let buttonClicked = false;
 
 
-        unlockButton.addEventListener(
-            "click",
-            () => {
+        unlockButton.addEventListener("click", () => {
 
-                if (buttonClicked) {
-                    return;
-                }
+            if (buttonClicked) {
+                return;
+            }
 
-                buttonClicked = true;
+            buttonClicked = true;
 
-
-                const rect =
-                    unlockButton.getBoundingClientRect();
+            unlockButton.disabled = true;
 
 
-                const centerX =
-                    rect.left +
-                    rect.width / 2;
+            const rect =
+                unlockButton.getBoundingClientRect();
 
 
-                const centerY =
-                    rect.top +
-                    rect.height / 2;
+            const centerX =
+                rect.left + rect.width / 2;
 
 
-                const confettiColors = [
-
-                    "#FF4D6D",
-                    "#FFD23F",
-                    "#39D6C0",
-                    "#8B5CF6",
-                    "#FFFFFF"
-
-                ];
+            const centerY =
+                rect.top + rect.height / 2;
 
 
-                for (
-                    let i = 0;
-                    i < 45;
-                    i++
-                ) {
-
-                    const particle =
-                        document.createElement(
-                            "span"
-                        );
-
-                    particle.className =
-                        "confetti";
+            const confettiColors = [
+                "#FF4D6D",
+                "#FFD23F",
+                "#39D6C0",
+                "#8B5CF6",
+                "#FFFFFF"
+            ];
 
 
-                    particle.style.left =
-                        centerX + "px";
+            for (let i = 0; i < 45; i++) {
+
+                const particle =
+                    document.createElement("span");
+
+                particle.className =
+                    "confetti";
 
 
-                    particle.style.top =
-                        centerY + "px";
+                particle.style.left =
+                    centerX + "px";
 
 
-                    particle.style.background =
-                        confettiColors[
-                            Math.floor(
-                                Math.random()
-                                *
-                                confettiColors.length
-                            )
-                        ];
+                particle.style.top =
+                    centerY + "px";
 
 
-                    particle.style.setProperty(
-                        "--x",
-                        `${
-                            (Math.random() - 0.5)
-                            * 350
-                        }px`
-                    );
+                particle.style.background =
+                    confettiColors[
+                        Math.floor(
+                            Math.random() *
+                            confettiColors.length
+                        )
+                    ];
 
 
-                    particle.style.setProperty(
-                        "--y",
-                        `${
-                            (Math.random() - 0.5)
-                            * 280
-                        }px`
-                    );
+                particle.style.setProperty(
+                    "--x",
+                    `${
+                        (Math.random() - 0.5) * 350
+                    }px`
+                );
 
 
-                    particle.style.setProperty(
-                        "--rotation",
-                        `${
-                            (Math.random() - 0.5)
-                            * 720
-                        }deg`
-                    );
+                particle.style.setProperty(
+                    "--y",
+                    `${
+                        (Math.random() - 0.5) * 280
+                    }px`
+                );
 
 
-                    document.body.appendChild(
-                        particle
-                    );
+                particle.style.setProperty(
+                    "--rotation",
+                    `${
+                        (Math.random() - 0.5) * 720
+                    }deg`
+                );
 
 
-                    setTimeout(() => {
-
-                        particle.remove();
-
-                    }, 550);
-
-                }
+                document.body.appendChild(
+                    particle
+                );
 
 
                 setTimeout(() => {
 
-                    window.location.href =
-                        "dashboard.html";
+                    particle.remove();
 
-                }, 500);
+                }, 550);
 
             }
-        );
+
+
+            setTimeout(() => {
+
+                window.location.href =
+                    "dashboard.html";
+
+            }, 500);
+
+        });
 
 
         /* =================================================
@@ -3107,28 +2908,38 @@
 
         function showTestimonial(index) {
 
-            testimonialCards.forEach(
-                (card, i) => {
+            testimonialCards.forEach((card, i) => {
 
-                    card.classList.toggle(
-                        "active",
-                        i === index
-                    );
+                const active = i === index;
 
-                }
-            );
+                card.classList.toggle(
+                    "active",
+                    active
+                );
+
+                card.setAttribute(
+                    "aria-hidden",
+                    active ? "false" : "true"
+                );
+
+            });
 
 
-            testimonialDots.forEach(
-                (dot, i) => {
+            testimonialDots.forEach((dot, i) => {
 
-                    dot.classList.toggle(
-                        "active",
-                        i === index
-                    );
+                const active = i === index;
 
-                }
-            );
+                dot.classList.toggle(
+                    "active",
+                    active
+                );
+
+                dot.setAttribute(
+                    "aria-current",
+                    active ? "true" : "false"
+                );
+
+            });
 
 
             currentTestimonial = index;
@@ -3165,22 +2976,17 @@
         }
 
 
-        testimonialDots.forEach(
-            (dot, index) => {
+        testimonialDots.forEach((dot, index) => {
 
-                dot.addEventListener(
-                    "click",
-                    () => {
+            dot.addEventListener("click", () => {
 
-                        showTestimonial(index);
+                showTestimonial(index);
 
-                        startTestimonialTimer();
+                startTestimonialTimer();
 
-                    }
-                );
+            });
 
-            }
-        );
+        });
 
 
         showTestimonial(0);
@@ -3216,10 +3022,6 @@
                         );
 
 
-                    /*
-                       Close all other FAQ tabs.
-                    */
-
                     faqItems.forEach(
                         otherItem => {
 
@@ -3239,10 +3041,6 @@
                         }
                     );
 
-
-                    /*
-                       Open selected tab.
-                    */
 
                     if (!isOpen) {
 
@@ -3311,11 +3109,6 @@
 
                 } catch (error) {
 
-                    /*
-                       Fallback for browsers
-                       that block clipboard access.
-                    */
-
                     const temporaryInput =
                         document.createElement(
                             "input"
@@ -3341,10 +3134,19 @@
                         "Email Copied!";
 
 
+                    copyEmailButton.classList.add(
+                        "copied"
+                    );
+
+
                     setTimeout(() => {
 
                         copyEmailButton.textContent =
                             "Copy Email";
+
+                        copyEmailButton.classList.remove(
+                            "copied"
+                        );
 
                     }, 1800);
 
@@ -3376,9 +3178,9 @@
             }
         );
 
-
     </script>
 
 </body>
 
 </html>
+```
